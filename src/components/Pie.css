@@ -1,0 +1,110 @@
+.pie {
+    position: relative;
+    display: inline-block;
+    line-height: 0;
+}
+
+.pie svg {
+    display: block;
+}
+
+.pie-slice {
+    cursor: pointer;
+    outline: none;
+}
+
+.pie-slice:focus-visible path {
+    filter: brightness(1.2);
+    stroke: rgba(255, 255, 255, 0.6);
+    stroke-width: 1.5px;
+}
+
+.pie-slice path {
+    transition: transform 0.25s ease, filter 0.25s ease;
+    transform-origin: center;
+}
+
+.pie-slice:hover path {
+    filter: brightness(1.1);
+}
+
+.pie-slice[data-selected="true"] path {
+    transform: scale(1.03);
+}
+
+.pie-slice[data-active="true"] path {
+    transform: scale(1.08);
+    filter: brightness(1.2);
+    stroke: rgba(255, 255, 255, 0.8);
+    stroke-width: 2px;
+}
+
+.pie-label {
+    fill: #ffffff;
+    font-size: clamp(0.5rem, 1.5vw, 0.85rem);
+    font-weight: 600;
+    letter-spacing: 0.04em;
+    pointer-events: none;
+    paint-order: stroke;
+    stroke: rgba(17, 17, 17, 0.35);
+    stroke-width: 0.6px;
+}
+
+.pie-overlay {
+    position: fixed;
+    inset: 0;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    background: rgba(6, 18, 28, 0.58);
+    z-index: 1000;
+    padding: 2rem;
+}
+
+.pie-overlay__panel {
+    position: relative;
+    background: #ffffff;
+    color: #0d1117;
+    padding: 2.5rem 2rem;
+    border-radius: 22px;
+    box-shadow: 0 20px 60px rgba(0, 0, 0, 0.35);
+    max-width: min(640px, 90vw);
+    width: 100%;
+    text-align: center;
+}
+
+.pie-overlay__close {
+    position: absolute;
+    top: 1rem;
+    right: 1rem;
+    background: transparent;
+    border: none;
+    color: #6b7280;
+    font-size: 1.75rem;
+    line-height: 1;
+    cursor: pointer;
+}
+
+.pie-overlay__close:hover,
+.pie-overlay__close:focus {
+    color: #111827;
+}
+
+.pie-overlay__label {
+    margin: 0 0 1rem;
+    font-size: clamp(2.25rem, 5vw, 3.75rem);
+    font-weight: 700;
+}
+
+.pie-overlay__value {
+    margin: 0 0 1.25rem;
+    font-size: clamp(1.1rem, 3.5vw, 1.75rem);
+    color: #2563eb;
+    font-weight: 600;
+}
+
+.pie-overlay__detail {
+    font-size: clamp(1rem, 2.8vw, 1.5rem);
+    line-height: 1.6;
+    color: #1f2937;
+}
