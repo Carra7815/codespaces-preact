@@ -2,10 +2,12 @@
     position: relative;
     display: inline-block;
     line-height: 0;
+    padding: 1rem;
 }
 
 .pie svg {
     display: block;
+    overflow: visible;
 }
 
 .pie-slice {
