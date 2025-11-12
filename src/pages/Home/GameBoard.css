@@ -1,0 +1,22 @@
+.game-board {
+	display: flex;
+	justify-content: center;
+	align-items: center;
+	padding: 5rem;
+	background: rgba(15, 23, 42, 0.05);
+	border-radius: 28px;
+	box-shadow: inset 0 1px 0 rgba(255, 255, 255, 0.6);
+}
+
+@media (max-width: 920px) {
+	.game-board {
+		width: 100%;
+	}
+}
+
+@media (prefers-color-scheme: dark) {
+	.game-board {
+		background: rgba(15, 23, 42, 0.45);
+		box-shadow: inset 0 1px 0 rgba(255, 255, 255, 0.05);
+	}
+}

@@ -27,7 +27,7 @@
 }
 
 .pie-slice:hover path {
-    filter: brightness(1.1);
+    filter: brightness(1.2);
 }
 
 .pie-slice[data-selected="true"] path {

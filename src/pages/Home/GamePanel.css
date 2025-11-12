@@ -1,0 +1,224 @@
+.game-panel {
+	background: rgba(255, 255, 255, 0.9);
+	padding: clamp(1.75rem, 4vw, 2.5rem);
+	border-radius: 24px;
+	box-shadow: 0 25px 60px -25px rgba(15, 23, 42, 0.45);
+	backdrop-filter: blur(6px);
+	color: #0f172a;
+	position: relative;
+	display: flex;
+	flex-direction: column;
+	gap: clamp(1rem, 2.4vw, 1.75rem);
+	min-width: 0;
+}
+
+.game-panel__title {
+	margin: 0;
+	font-size: clamp(1.8rem, 3.4vw, 2.5rem);
+	font-weight: 700;
+	letter-spacing: -0.01em;
+}
+
+.game-panel__subtitle {
+	margin: 0;
+	font-size: 1rem;
+	color: #475569;
+	max-width: 28ch;
+}
+
+.game-panel__status {
+	display: flex;
+	flex-wrap: wrap;
+	gap: 0.5rem;
+	font-weight: 600;
+	color: #2563eb;
+	width: 100%;
+	max-width: 100%;
+}
+
+.game-panel__status-item {
+	background: rgba(37, 99, 235, 0.12);
+	padding: 0.4rem 0.85rem;
+	border-radius: 999px;
+	flex: 0 1 auto;
+	max-width: 100%;
+	white-space: nowrap;
+	overflow: hidden;
+	text-overflow: ellipsis;
+}
+
+.game-panel__win-message {
+	background: rgba(34, 197, 94, 0.15);
+	color: #15803d;
+	font-weight: 700;
+	padding: 0.75rem 1rem;
+	border-radius: 18px;
+	border: 1px solid rgba(74, 222, 128, 0.3);
+}
+
+.game-panel__question {
+	margin: 0;
+	font-size: clamp(1.1rem, 2.6vw, 1.6rem);
+	font-weight: 600;
+	line-height: 1.45;
+	color: #0f172a;
+}
+
+.game-panel__form {
+	display: flex;
+	flex-direction: column;
+	gap: 0.85rem;
+}
+
+.game-panel__label {
+	font-weight: 600;
+	color: #1e293b;
+}
+
+.game-panel__textarea {
+	font-family: inherit;
+	font-size: 1rem;
+	line-height: 1.5;
+	padding: 0.9rem 1rem;
+	border-radius: 16px;
+	border: 1px solid #cbd5f5;
+	resize: vertical;
+	min-height: 7rem;
+	box-shadow: inset 0 1px 2px rgba(15, 23, 42, 0.08);
+}
+
+.game-panel__textarea:focus {
+	outline: none;
+	border-color: #2563eb;
+	box-shadow: 0 0 0 3px rgba(37, 99, 235, 0.12);
+}
+
+.game-panel__word-count {
+	font-weight: 600;
+	color: #0369a1;
+	text-align: right;
+}
+
+.game-panel__submit-button {
+	background: linear-gradient(135deg, #2563eb, #1d4ed8);
+	border: none;
+	color: #fff;
+	font-weight: 700;
+	font-size: 1rem;
+	padding: 0.9rem 1.3rem;
+	border-radius: 16px;
+	cursor: pointer;
+	transition: transform 0.15s ease, box-shadow 0.15s ease;
+}
+
+.game-panel__submit-button:disabled {
+	background: #cbd5f5;
+	color: #64748b;
+	cursor: not-allowed;
+	box-shadow: none;
+}
+
+.game-panel__submit-button:not(:disabled):hover {
+	transform: translateY(-1px);
+	box-shadow: 0 15px 25px -12px rgba(37, 99, 235, 0.55);
+}
+
+.game-panel__history {
+	margin-top: 0.75rem;
+	font-size: 0.95rem;
+	color: #334155;
+}
+
+.game-panel__reset-button {
+	margin-top: auto;
+	background: none;
+	border: 1px solid rgba(15, 23, 42, 0.12);
+	color: #1e40af;
+	font-weight: 600;
+	padding: 0.75rem 1rem;
+	border-radius: 14px;
+	cursor: pointer;
+	transition: background-color 0.15s ease, color 0.15s ease, border-color 0.15s ease;
+}
+
+.game-panel__reset-button:hover {
+	background: rgba(59, 130, 246, 0.08);
+	border-color: rgba(37, 99, 235, 0.4);
+	color: #1d4ed8;
+}
+
+.game-panel__reset-button:active {
+	background: rgba(59, 130, 246, 0.15);
+}
+
+@media (max-width: 920px) {
+	.game-panel {
+		width: min(640px, 100%);
+	}
+}
+
+@media (prefers-color-scheme: dark) {
+	.game-panel {
+		background: rgba(15, 23, 42, 0.85);
+		color: #e2e8f0;
+		box-shadow: 0 25px 60px -25px rgba(2, 6, 23, 0.9);
+	}
+
+	.game-panel__subtitle {
+		color: #94a3b8;
+	}
+
+	.game-panel__status-item {
+		background: rgba(59, 130, 246, 0.25);
+		color: #bfdbfe;
+		flex: 0 1 auto;
+		max-width: 100%;
+		white-space: nowrap;
+		overflow: hidden;
+		text-overflow: ellipsis;
+	}
+
+	.game-panel__question {
+		color: #e2e8f0;
+	}
+
+	.game-panel__label {
+		color: #cbd5f5;
+	}
+
+	.game-panel__textarea {
+		background: rgba(15, 23, 42, 0.6);
+		border-color: rgba(148, 163, 184, 0.6);
+		color: #e2e8f0;
+	}
+
+	.game-panel__textarea::placeholder {
+		color: #94a3b8;
+	}
+
+	.game-panel__submit-button:disabled {
+		background: rgba(51, 65, 85, 0.6);
+		color: #94a3b8;
+	}
+
+	.game-panel__history {
+		color: #cbd5f5;
+	}
+
+	.game-panel__win-message {
+		background: rgba(34, 197, 94, 0.18);
+		color: #4ade80;
+		border-color: rgba(74, 222, 128, 0.5);
+	}
+
+	.game-panel__reset-button {
+		border: 1px solid rgba(226, 232, 240, 0.2);
+		color: #bfdbfe;
+	}
+
+	.game-panel__reset-button:hover {
+		background: rgba(96, 165, 250, 0.15);
+		border-color: rgba(148, 163, 184, 0.5);
+		color: #e0f2fe;
+	}
+}
