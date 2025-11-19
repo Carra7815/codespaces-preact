@@ -106,6 +106,7 @@ export function Pie({ children, size = 200, innerRadius = 0, holeColor = '#fff',
                 labelX: labelPoint.x,
                 labelY: labelPoint.y,
                 textContent: slice.props?.detail ?? slice.props?.children ?? null,
+                used: Boolean(slice.props?.used),
             };
         });
     }, [center.x, center.y, innerRadiusPx, outerRadius, slices, totalValue]);
@@ -145,6 +146,7 @@ export function Pie({ children, size = 200, innerRadius = 0, holeColor = '#fff',
                 {segments.map((segment, index) => {
                     const isSelected = selectedIndex === index;
                     const isActive = normalizedActiveIndex === index;
+                    const isUsed = segment.used;
                     return (
                         <g
                             key={index}
@@ -154,12 +156,13 @@ export function Pie({ children, size = 200, innerRadius = 0, holeColor = '#fff',
                             aria-pressed={isSelected}
                             data-selected={isSelected}
                             data-active={isActive}
+                            data-used={isUsed}
                             aria-label={`${segment.label}: ${segment.value}`}
                             onClick={() => handleSelect(index)}
                             onKeyDown={event => handleKeyDown(event, index)}
                         >
                             <path d={segment.path} fill={segment.color} />
-                            {textLabelVisible(segment.label) && (
+                            {textLabelVisible(segment.label) && !isUsed && (
                                 <text x={segment.labelX} y={segment.labelY} className="pie-label" textAnchor="middle" dominantBaseline="middle">
                                     {segment.label}
                                 </text>
